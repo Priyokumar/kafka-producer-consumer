@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.18.0 (06a2e56)
+  labels:
+    io.kompose.service: producer-service
+  name: producer-service
+spec:
+  replicas: 1
+  strategy: {}
+  selector:
+    matchLabels:
+      io.kompose.service: producer-service
+  template:
+    metadata:
+      labels:
+        io.kompose.service: producer-service
+    spec:
+      containers:
+      - env:
+        - name: kafkaURL
+          value: kafka-service:9092
+        - name: topic
+          value: jan-topic
+        image: priyon999/producer-service
+        name: producer-service
+        ports:
+        - containerPort: 8001

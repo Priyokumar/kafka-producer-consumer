@@ -1,0 +1,26 @@
+swagger: "2.0"
+info:
+  description: "Producer Service"
+  version: "1.0.0"
+  title: "Producer service"
+  contact:
+    email: "priyon777@gmail.com"
+host: "localhost:8001"
+basePath: "/v1/api"
+schemes:
+- "http"
+paths:
+  /message/publish:
+    post:
+      tags:
+      - "producer"
+      summary: "Produce kafka messages"
+      description: "This will trigger kafka to produce continous messages"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: It will return 200 with a message
+          schema:
+            type: string
+            example: "Started publishing message."

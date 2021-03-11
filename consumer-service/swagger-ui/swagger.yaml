@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  description: "Consumer service"
+  version: "1.0.0"
+  title: "Consumer service"
+  contact:
+    email: "priyon777@gmail.com"
+host: "localhost:8000"
+basePath: "/v1/api"
+schemes:
+- "http"
+paths:
+  /messages/count:
+    get:
+      tags:
+      - "Consumer"
+      description: "Returns aggregated message count."
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "integer"
+            format: "int64"
+  
+  
